@@ -1,0 +1,58 @@
+/* Estilo del formulario en formulario.html */
+
+body{
+
+    background-color: rgb(22, 22, 22);
+
+    color: white;
+}
+
+
+.form-container {
+    padding: 20px;
+    background-color: rgb(57, 57, 57);
+    border-radius: 10px;
+    color: white;
+    max-width: 600px;
+    margin: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input, textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgb(38, 38, 38);
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    
+}
+
+button {
+    background-color: rgb(58, 58, 58);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgb(88, 88, 88);
+}
+
+.delete-button{
+    margin-left: 46%;
+    margin-top: 20px;
+}

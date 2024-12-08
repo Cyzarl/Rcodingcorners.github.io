@@ -1,0 +1,52 @@
+<!-- uploadpage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Post</title>
+    <link rel="stylesheet" href="styleforupload.css">
+</head>
+<body>
+
+    <div class="greatbox">
+        <div class="head">
+            <h2>Submit a Post</h2>
+        </div>
+
+        <div class="body">
+            <div class="optionbox">
+
+                <form id="postForm" class="postForm">
+                    <label for="mood">Mood:</label>
+                    <input type="text" id="mood" name="mood" placeholder="How are you feeling?" required>
+                
+                    <label for="comment">Message:</label>
+                    <textarea id="comment" name="comment" placeholder="Your message..." required></textarea>
+                
+                    <label for="imageUrl">Image URL:</label>
+                    <input type="text" id="imageUrl" name="imageUrl" placeholder="Paste image URL here">
+                
+                    <label for="videoUrl">Video URL (YouTube or Vimeo):</label>
+                    <input type="text" id="videoUrl" name="videoUrl" placeholder="Paste video URL here">
+                
+                    <button type="submit">Publish</button>
+                </form>
+
+                <button class="delete-button" id="clearStorageButton">Delete published</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="formScript.js"></script>
+
+    <script>
+        document.getElementById("clearStorageButton").addEventListener("click", () =>{
+            //Deletes published stuffs
+            localStorage.removeItem("posts");
+
+            alert("All published content were deleted successfully!")
+        })
+    </script>
+</body>
+</html>

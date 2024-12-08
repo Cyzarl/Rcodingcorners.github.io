@@ -1,0 +1,385 @@
+body{
+    background-color: rgb(14, 23, 23);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto Flex";
+
+}
+.wallpaper{
+    margin-left: -3.16%;
+    padding-right: 3.16%;
+    height: 100px;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+.wallpaper img{
+    height: 100px;
+    width: 700px;
+    margin-left: -3%;
+    object-fit: cover;
+    display: block;
+
+}
+
+.greatbox{
+    background-color: rgba(128, 128, 128, 0.088);
+    color: white;
+    width: 70%;
+    margin-top: 5%;
+    aspect-ratio: 16/9;
+    border-radius: 7px;
+    max-width: 600px;
+    margin-bottom: 100px;
+
+    
+
+}
+
+.head, .body{
+    margin-left: 3% ;
+}
+
+
+.pfpic{
+    width: 50px;
+    border-radius: 30px;
+    height: auto;
+    box-shadow: 0px 0px 0px 2px;
+}
+.pfp{
+    margin-top: -3%;
+    text-decoration: none;
+
+}
+
+#profile{
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.detailbox{
+    
+    background-color: rgb(57, 57, 57);
+    align-items: center;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    margin-left: 3.5%;
+    height: auto;
+    padding-top: 30px;
+    margin-top: 20px;
+}
+
+.aboutme{
+    margin-left: 20px;
+    margin-top: -15px;
+    margin-right: 10%;
+}
+
+.logopic{
+    margin-left: 20px;
+    display: inline-block;
+    margin-right: -10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 25px;
+}
+
+.body{
+    margin-top: 30px;
+    display: flex;
+    margin-left: 6%;
+    margin-bottom: 20px;
+}
+
+.optionbox{
+    width: 89%;
+    margin-left: 20px;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 95px;
+    background-color: transparent;
+    BOX-shadow: 0PX 2PX white, 2px 0 transparent inset;
+    position: static;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+    
+.button:hover {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 95px;
+    background-color: transparent;
+    BOX-shadow: 0PX 2PX rgb(194, 197, 28), 2px 0 transparent inset;
+    position: static;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+
+.content{
+    margin-top: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 15px;
+    padding-bottom: 1px;
+    background-color: transparent;
+    height: fit-content;
+    transition-duration: 0.4s;
+    
+
+}
+
+.content:hover{
+    background-color: rgb(58, 58, 58);
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+
+.pfpublish{
+    width: 30px;
+    border-radius: 30px;
+    height: auto;
+    box-shadow: 0px 0px 0px 2px;
+    
+}
+
+#publisher {
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+.mood{
+    border-radius: 5px;
+    background-color: rosybrown;
+    width: fit-content;
+    border: solid rosybrown;
+    margin-top: -10px;
+    
+}
+
+.publication{
+    margin-left: 33px;
+}
+.publishimage{
+    margin-left: 0;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.publishvideo{
+    margin-left: 0;
+    height: 315px;
+    overflow: hidden;
+    width: 100%;
+    transition: all 0.3s;
+    border: solid 5px transparent;
+
+}
+
+.publishvideo:hover{
+    margin-left: -90px;
+    height: 315px;
+    padding-right: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 140px;
+    transition: all 0.3s;
+    border: solid 5px rgb(90, 90, 90);
+}
+
+
+.publishimage:hover{
+    transition: all 0.3s;
+    border-radius: 0px;
+}
+
+.comment{
+    margin-top: -50px;
+    margin-left: 50px;
+    padding-bottom: 10px;
+    
+}
+
+.respond{
+    background-color: transparent;
+    border-color: transparent;
+    color: gray;
+    transition: all 0.3s;
+}
+
+.respond:hover{
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s;
+}
+
+
+.like{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+}
+
+.like input{
+    position: absolute;
+    opacity: 0;
+
+}
+
+
+.like label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.like label::before{
+    cursor: pointer;
+    content: "❤";
+    font-size: 20px;
+    border: 3px  ;
+    color: transparent;
+    -webkit-text-stroke: 1px gray;
+    transition: all 0.3s ease;
+    
+    
+}
+
+
+
+
+.like input:checked + label::before{
+    cursor: pointer;
+    transform: scale(1.2);
+    color: #e63946;
+    -webkit-text-stroke: 1px #e63946;
+    transition: all 0.3s ease;
+}
+
+.label .tooltip{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+
+}
+
+.label:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+
+
+
+.commentSection {
+    margin-top: 20px;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.commentProfile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.commentItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.commentName {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.commentText {
+    color: #ddd;
+}
+
+.commentForm {
+    padding-bottom: 10px;
+    margin-bottom: 20px
+    
+}
+
+.commentForm input, .commentForm textarea {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-bottom:1px solid #ccc;
+    border-top: 1px transparent;
+    border-left: 1px transparent;
+    border-right: 1px transparent;
+    background-color: #444;
+    color: white;
+}
+
+.commentForm button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.commentForm button:hover {
+    background-color: #d13d3d;
+}
+
+

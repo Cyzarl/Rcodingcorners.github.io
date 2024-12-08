@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealCodingPortfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght,GRAD@8..144,100..1000,150&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="greatbox">
+
+        <div class="head">
+            <div class="wallpaper">
+                <img src="data/images/wallpaper.png" alt="">
+            </div>
+
+            <div class="pfp">
+                <a href="">
+                    <img class="pfpic" id="profile" src="data\images\pfp.png" alt="Robert Gabriel Batista Aquino">
+                    <h3 id="profile" class="pfpname">Robert  Batista</h3>
+                 
+                </a>
+            </div>
+
+            <div class="detailbox">
+                <p class="aboutme">🚀 <strong>Software Engineering Student</strong> passionate about <strong>cybersecurity</strong> 🔒 | Developing in <strong>HTML, CSS, Python</strong>, learning <strong>SQL</strong> and <strong>PHP</strong> | Exploring technology to build and protect the future. 💻
+                </p>
+                <a href="https://www.linkedin.com/in/robert-gabriel-batista-aquino-0169b3280/" class="socialmed" target="_blank"> <img src="data/images/linkedin.png" alt="LinkedIn profile" class="logopic"></a>
+                <a href="https://github.com/cyzarl" class="socialmed" target="_blank"> <img src="data/images/github-white.png" alt="" class="logopic"></a>
+
+                
+            </div>
+
+
+        </div>
+
+        <div class="body">
+            <div class="optionbox">
+
+                <div class="buttons" id="headerbuttons">
+                    <a href="#feedsection"><button type="button" class="button button1">Feed</button></a>
+                    <a href=""><button type="button" class="button button2">Creations</button></a>
+                    <a href=""><button type="button" class="button button1">About Me</button></a>
+                    <a href=""><button type="button" class="button button1">GuestBook</button></a>
+
+                </div>
+
+                <div id="feedsection" class="section">
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleCommentForm(postIndex) {
+            const commentSection = document.getElementById(`commentSection-${postIndex}`);
+            const commentsList = document.getElementById(`commentsList-${postIndex}`);
+            const isFormVisible = commentSection.style.display === "block";
+            
+            // Si el formulario está visible, lo cerramos
+            if (isFormVisible) {
+                commentSection.style.display = "none";
+            } else {
+                // Si el formulario no está visible, lo mostramos
+                commentSection.style.display = "block";
+                displayComments(postIndex); // Mostrar los comentarios cuando se abre el formulario
+            }
+        }
+    
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+        posts.forEach((post, index) => {
+            const likeId = `like-${index}`;
+    
+            const postElement = document.createElement("div");
+            postElement.classList.add("content");
+    
+            postElement.innerHTML = `
+                <img class="pfpublish" id="publisher" src="data/images/pfp.png" alt="Robert Batista">
+                <p class="pname" id="publisher">Robert Batista</p>
+                <div class="publication">
+                    <p class="mood">${post.mood}</p>
+                    <p id="comment">${post.comment}</p>
+                    ${post.image ? `<img src="${post.image}" alt="Posted Image" class="publishimage">` : ""}
+                    ${post.video ? `<div class="publishvideo">${post.video}</div>` : ""}
+                </div>
+    
+                <div class="like">
+                    <input type="checkbox" id="${likeId}" alt="Like">
+                    <label for="${likeId}" class="label"> <div class="tooltip">Leave a like</div></label>
+                </div>
+    
+                <div class="comment">
+                    <button onclick="toggleCommentForm(${index})" class="respond">Comment</button>
+                </div>
+    
+                <div id="commentSection-${index}" class="commentSection" style="display:none">
+                    <div class="commentForm">
+                        <form id="commentForm-${index}">
+                            <label for="name-${index}">Name: </label>
+                            <input type="text" id="name-${index}" required>
+                            <label for="image-${index}">Profile Image URL: </label>
+                            <input type="text" id="image-${index}">
+                            <label for="commentText-${index}">Leave a Comment</label>
+                            <textarea id="commentText-${index}" required></textarea>
+                            <button type="submit">Submit Comment</button>
+                        </form>
+                    </div>
+                    <div id="commentsList-${index}" class="commentsList">
+                        <!-- Comments will appear here -->
+                    </div>
+                </div>
+            `;
+    
+            document.getElementById("feedsection").prepend(postElement);
+    
+            document.getElementById(`commentForm-${index}`).addEventListener("submit", function (event) {
+                event.preventDefault();
+    
+                const name = document.getElementById(`name-${index}`).value;
+                const image = document.getElementById(`image-${index}`).value || "data/images/pfp.png"; // Default profile image if none provided
+                const commentText = document.getElementById(`commentText-${index}`).value;
+    
+                const commentData = {
+                    name: name,
+                    image: image,
+                    comment: commentText
+                };
+    
+                let comments = JSON.parse(localStorage.getItem(`comments-${index}`)) || [];
+                comments.push(commentData);
+                localStorage.setItem(`comments-${index}`, JSON.stringify(comments));
+    
+                displayComments(index);
+                toggleCommentForm(index); // Hide the form after submission
+            });
+    
+            displayComments(index); // Load existing comments on page load
+        });
+    
+        function displayComments(postIndex) {
+            const comments = JSON.parse(localStorage.getItem(`comments-${postIndex}`)) || [];
+            const commentsList = document.getElementById(`commentsList-${postIndex}`);
+            commentsList.innerHTML = ""; // Clear existing comments before displaying
+    
+            comments.forEach(comment => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("commentItem");
+    
+                commentElement.innerHTML = `
+                    <img class="commentProfile" src="${comment.image}" alt="${comment.name}">
+                    <p class="commentName">${comment.name}</p>
+                    <p class="commentText">${comment.comment}</p>
+                `;
+    
+                commentsList.appendChild(commentElement);
+            });
+        }
+    </script>
+    
+    
+    
+    
+</body>
+</html>
